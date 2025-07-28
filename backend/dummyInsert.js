@@ -1,4 +1,4 @@
-import { insertDummyIPO } from './models/ipoModel.js';
+import insertDummyIPO from './models/ipoModel.js';
 
 const dummy = {
   name: "ABC Tech Ltd",

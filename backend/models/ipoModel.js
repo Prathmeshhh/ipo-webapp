@@ -2,8 +2,13 @@ import db from '../db.js';
 
 // Get all IPOs
 export const  getAllIPOs = async () => {
-  const result = await db.query('SELECT * FROM ipos ORDER BY open_date DESC');
-  return result.rows;
+  try {
+    const result = await db.query('SELECT * FROM ipos ORDER BY open_date DESC');
+    return result.rows;
+  } catch (err) {
+    console.error("❌ DB error in getAllIPOs:", err.message);
+    throw err;
+  }
 }
 
 // Insert new IPO
