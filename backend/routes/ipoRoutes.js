@@ -1,18 +1,31 @@
 import express from 'express';
+import { getAllIPOs } from '../models/ipoModel.js';
+import createIPO from '../controllers/ipoController.js';
+import upload from '../middleware/upload.js';
 
 const router = express.Router();
-import { getAllIPOs } from '../models/ipoModel.js';
 
+// GET all IPOs
 router.get('/', async (req, res) => {
   try {
     const ipos = await getAllIPOs();
-    console.log("✅ IPOs fetched:", ipos);
     res.json(ipos);
   } catch (err) {
-    console.error("❌ Error in /api/ipo route:", err.message);
     res.status(500).json({ error: 'Failed to fetch IPOs' });
   }
 });
+
+// POST new IPO with files
+router.post(
+  '/',
+  upload.fields([
+    { name: 'logo', maxCount: 1 },
+    { name: 'rhp', maxCount: 1 },
+    { name: 'drhp', maxCount: 1 }
+  ]),
+  createIPO
+);
+
 
 export default router;
 
