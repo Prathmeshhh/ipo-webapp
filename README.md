@@ -25,3 +25,9 @@ It includes a full-stack web app and REST API for managing IPO data.
 ## 📁 Folder Structure
 - `backend/`: API + DB logic
 - `frontend/`: UI for IPO listings & admin
+
+## ✅ Completed (Day 3)
+- POST /api/ipo endpoint added
+- Integrated multer for file uploads (logo, RHP, DRHP)
+- Saved file paths to PostgreSQL database
+- Tested with Postman using form-data
