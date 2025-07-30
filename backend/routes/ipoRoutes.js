@@ -2,6 +2,7 @@ import express from 'express';
 import { getAllIPOs } from '../models/ipoModel.js';
 import createIPO from '../controllers/ipoController.js';
 import upload from '../middleware/upload.js';
+import verifyToken from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -18,6 +19,7 @@ router.get('/', async (req, res) => {
 // POST new IPO with files
 router.post(
   '/',
+  verifyToken, // 🔐 Secure the route
   upload.fields([
     { name: 'logo', maxCount: 1 },
     { name: 'rhp', maxCount: 1 },

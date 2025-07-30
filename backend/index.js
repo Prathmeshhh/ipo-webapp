@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import db from './db.js'
 import ipoRoutes from './routes/iporoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 // Initialize dotenv to load environment variables
 dotenv.config();
@@ -11,6 +12,9 @@ const app = express();
 // Applying middlewares
 app.use(cors()); 
 app.use(express.json()); 
+
+app.use('/api', authRoutes);
+
 
 app.use('/api/ipo', ipoRoutes);
 
