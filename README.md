@@ -57,3 +57,9 @@ It includes a full-stack web app and REST API for managing IPO data.
      - `POST /api/ipo`
      - `PUT /api/ipo/:id`
      - `DELETE /api/ipo/:id`
+
+## ✅ Completed (Day 5)
+- Implemented `PUT /api/ipo/:id` to update IPO
+- Implemented `DELETE /api/ipo/:id` to remove IPO
+- Secured both routes with JWT
+- Tested using Postman with Bearer tokens
