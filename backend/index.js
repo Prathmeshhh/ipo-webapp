@@ -1,8 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import db from './db.js'
-import ipoRoutes from './routes/iporoutes.js';
+import ipoRoutes from './routes/ipoRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 
 // Initialize dotenv to load environment variables

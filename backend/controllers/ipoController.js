@@ -1,9 +1,10 @@
-import insertIPO from '../models/ipoModel.js';
+import { insertIPO } from '../models/ipoModel.js';
+import { updateIPO, deleteIPO } from '../models/ipoModel.js';
 
 // Utility function to handle optional number fields
 const parseOrNull = (val) => val === "" ? null : Number(val);
 
-async function createIPO(req, res) {
+export async function createIPO(req, res) {
   try {
     const {
       name, price_band, open_date, close_date,
@@ -39,5 +40,30 @@ async function createIPO(req, res) {
   }
 }
 
+export async function editIPO(req, res) {
+  try {
+    const id = req.params.id;
+    const data = req.body;
 
-export default createIPO;
+    const updated = await updateIPO(id, data);
+    if (!updated) return res.status(404).json({ error: 'IPO not found' });
+
+    res.json(updated);
+  } catch (err) {
+    console.error("❌ Error in editIPO:", err.message);
+    res.status(500).json({ error: 'Failed to update IPO' });
+  }
+}
+
+export async function removeIPO(req, res) {
+  try {
+    const id = req.params.id;
+    const deleted = await deleteIPO(id);
+    if (!deleted) return res.status(404).json({ error: 'IPO not found' });
+
+    res.json({ message: 'IPO deleted successfully' });
+  } catch (err) {
+    console.error("❌ Error in removeIPO:", err.message);
+    res.status(500).json({ error: 'Failed to delete IPO' });
+  }
+}

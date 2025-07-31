@@ -1,6 +1,6 @@
 import express from 'express';
 import { getAllIPOs } from '../models/ipoModel.js';
-import createIPO from '../controllers/ipoController.js';
+import { createIPO, editIPO, removeIPO } from '../controllers/ipoController.js';
 import upload from '../middleware/upload.js';
 import verifyToken from '../middleware/auth.js';
 
@@ -16,10 +16,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST new IPO with files
+// POST IPO (Protected)
 router.post(
   '/',
-  verifyToken, // 🔐 Secure the route
+  verifyToken,
   upload.fields([
     { name: 'logo', maxCount: 1 },
     { name: 'rhp', maxCount: 1 },
@@ -28,6 +28,11 @@ router.post(
   createIPO
 );
 
+// PUT IPO (Protected)
+router.put('/:id', verifyToken, editIPO);
+
+// DELETE IPO (Protected)
+router.delete('/:id', verifyToken, removeIPO);
 
 export default router;
 
