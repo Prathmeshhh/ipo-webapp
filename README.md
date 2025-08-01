@@ -63,3 +63,10 @@ It includes a full-stack web app and REST API for managing IPO data.
 - Implemented `DELETE /api/ipo/:id` to remove IPO
 - Secured both routes with JWT
 - Tested using Postman with Bearer tokens
+
+## ✅ Completed (Day 6)
+- Created frontend IPO listing page (`index.html`)
+- Fetched IPO data from `/api/ipo` using `fetch()`
+- Displayed IPOs as responsive Bootstrap cards
+- Added download buttons for RHP and DRHP
+- Optional: Live search filter by name
