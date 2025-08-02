@@ -77,3 +77,10 @@ It includes a full-stack web app and REST API for managing IPO data.
 - Developed `admin.html` form to create IPO with file uploads
 - Used `multipart/form-data` to POST to API
 - Handled file inputs: logo, RHP, DRHP
+
+## ✅ Day 8 – Admin Dashboard
+- Created `admin_dashboard.html`
+- Fetched IPO list with JWT authorization
+- Added Edit and Delete buttons
+- Handled IPO deletion with confirmation and token
+
