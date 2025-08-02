@@ -70,3 +70,10 @@ It includes a full-stack web app and REST API for managing IPO data.
 - Displayed IPOs as responsive Bootstrap cards
 - Added download buttons for RHP and DRHP
 - Optional: Live search filter by name
+
+## ✅ Completed (Day 7)
+- Created `detail.html` to show full IPO details
+- Fetched IPO by ID and displayed logo, pricing, dates, PDFs
+- Developed `admin.html` form to create IPO with file uploads
+- Used `multipart/form-data` to POST to API
+- Handled file inputs: logo, RHP, DRHP
