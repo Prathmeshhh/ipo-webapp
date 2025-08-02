@@ -1,0 +1,45 @@
+body {
+  background-color: #f2f4f8;
+}
+.ipo-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+.ipo-logo {
+  max-height: 220px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+.label {
+  font-weight: 600;
+  color: #555;
+}
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #f5f5f5 !important;
+}
+
+.dark-mode .card,
+.dark-mode .ipo-card,
+.dark-mode .list-group-item,
+.dark-mode .form-control,
+.dark-mode .btn {
+  background-color: #1e1e1e !important;
+  color: #f5f5f5 !important;
+  border-color: #444 !important;
+}
+
+.dark-mode .btn-outline-secondary {
+  border-color: #aaa !important;
+  color: #ccc;
+}
+
+.dark-mode .btn-outline-primary {
+  border-color: #4d90fe !important;
+  color: #4d90fe;
+}
