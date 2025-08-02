@@ -7,13 +7,16 @@ document
 
     const form = e.target;
     const formData = new FormData(form);
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJsdWVzdG9jay5jb20iLCJpYXQiOjE3NTQxNTcwNzYsImV4cCI6MTc1NDE2MDY3Nn0.BHUGwHbqjwPqZvEeAgcTtezy0_yPgoRR8BtCRm_zCvw"; // Replace this with your working token
-
+    const token = localStorage.getItem("token");
     const alertBox = document.getElementById("alert-box");
     const msgBox = document.getElementById("message-box");
 
     try {
+      if (!token) {
+        alert("Login required");
+        window.location.href = "login.html";
+      }
+
       const res = await fetch("http://localhost:5000/api/ipo", {
         method: "POST",
         headers: {
@@ -50,3 +53,8 @@ document
       msgBox.style.display = "block";
     }
   });
+
+  function logout() {
+    localStorage.removeItem('jwt');
+    window.location.href = 'login.html';
+  }
